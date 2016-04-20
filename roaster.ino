@@ -26,9 +26,9 @@ int SHT_clockPin = 5;  // pin used for clock
 int SHT_dataPin  = 4;  // pin used for data
 
 //Speaker Variables
-unsigned int frequency = 5000;
-int speakerPin = 7; // can be whatever we want it to be
-int duration = 500;
+unsigned int frequency = 10000;
+int speakerPin = 5; // can be whatever we want it to be
+int duration = 20;
 
 int x0, x1, y0, y1, z0, z1, x, y, z;
 byte second, second2, minute, minute2, hour, dayOfWeek, dayOfMonth, month, year;
@@ -191,7 +191,6 @@ void loop()
     delay(7000);
     bluetooth.println(getShtTemperature()*9/5+32);
     lightOn = false;
-    toasted();
   }
   //printShtTemperatureCelsius();
 }
@@ -450,9 +449,4 @@ void SHT_skipCrc(int dataPin, int clockPin){
   digitalWrite(clockPin, HIGH);
   digitalWrite(clockPin, LOW);
 }
-
-void toasted() {
-  tone(speakerPin, frequency, duration);
-}
-  
 
